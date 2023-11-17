@@ -20,12 +20,12 @@ def agregar_palabra():
     conexion, cursor = conectar_bd()
     cursor.execute("INSERT INTO palabras (palabra, significado) VALUES (?, ?)", (palabra, significado))
     conexion.commit()
-    print("Palabra agregada correctamente.")
+    print(f"La palabra {palabra} ha sido agregada correctamente.")
 
 def editar_palabra():
     palabra_a_editar = input("Ingrese la palabra que desea editar: ")
     nueva_palabra = input("Nueva palabra: ")
-    nuevo_significado = input("Nuevo significado: ")
+    nuevo_significado = input(f"Nuevo significado de {nueva_palabra}: ")
 
     conexion, cursor = conectar_bd()
     cursor.execute("UPDATE palabras SET palabra=?, significado=? WHERE palabra=?", (nueva_palabra, nuevo_significado, palabra_a_editar))
@@ -38,7 +38,7 @@ def eliminar_palabra():
     conexion, cursor = conectar_bd()
     cursor.execute("DELETE FROM palabras WHERE palabra=?", (palabra_a_eliminar,))
     conexion.commit()
-    print("Palabra eliminada correctamente.")
+    print(f"La palabra {palabra_a_eliminar} ha sido eliminada correctamente.")
 
 def ver_listado():
     conexion, cursor = conectar_bd()
@@ -52,28 +52,28 @@ def ver_listado():
             print(f"{palabra}: {significado}")
 
 def buscar_significado():
-    palabra_a_buscar = input("Ingrese la palabra que desea buscar: ")
+    palabra_a_buscar = input("Que palabra desea buscar: ")
 
     conexion, cursor = conectar_bd()
     cursor.execute("SELECT significado FROM palabras WHERE palabra=?", (palabra_a_buscar,))
     resultado = cursor.fetchone()
 
     if resultado:
-        print(f"Significado de '{palabra_a_buscar}': {resultado[0]}")
+        print(f"Significado de '{palabra_a_buscar}' es: {resultado[0]}")
     else:
-        print("Palabra no encontrada en el diccionario.")
+        print(f"La palabra {palabra_a_buscar} no se encuentra en el diccionario.")
 
 def menu():
     while True:
-        print("\n*** Diccionario de Slang Panameño ***")
+        print("\nDSP")
         print("a) Agregar nueva palabra")
         print("c) Editar palabra existente")
-        print("d) Eliminar palabra existente")
-        print("e) Ver listado de palabras")
+        print("d) Eliminar palabra")
+        print("e) Lista de palabras")
         print("f) Buscar significado de palabra")
         print("g) Salir")
 
-        opcion = input("Seleccione una opción: ").lower()
+        opcion = input("Que desea hacer?").lower()
 
         if opcion == 'a':
             agregar_palabra()
@@ -86,7 +86,7 @@ def menu():
         elif opcion == 'f':
             buscar_significado()
         elif opcion == 'g':
-            print("¡Hasta luego!")
+            print("Hasta luego")
             break
         else:
             print("Opción no válida. Inténtelo de nuevo.")

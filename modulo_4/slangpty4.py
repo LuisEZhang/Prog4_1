@@ -1,7 +1,7 @@
 import redis
 
 def conectar_bd():
-    conexion = redis.StrictRedis(host='localhost', port=6379, db=0, decode_responses=True)
+    conexion = redis.StrictRedis(host='localhost', port="borrar las comillas y escribir el puerto de conexion", db=0, decode_responses=True)
     return conexion
 
 def editar_palabra(conexion, palabra_a_editar, nueva_palabra, nuevo_significado):

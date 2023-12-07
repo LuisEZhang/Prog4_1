@@ -11,7 +11,6 @@ def conectar_bd():
     conexion = mysql.connector.connect(**DB_CONFIG)
     cursor = conexion.cursor()
 
-    # Crear tabla si no existe
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS palabras (
             id INT AUTO_INCREMENT PRIMARY KEY,

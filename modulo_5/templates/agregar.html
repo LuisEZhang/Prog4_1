@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Nueva Palabra</title>
+</head>
+<body>
+    <h1>Agregar Nueva Palabra</h1>
+    <form method="post" action="{{ url_for('agregar_palabra') }}">
+        <label for="palabra">Palabra:</label>
+        <input type="text" id="palabra" name="palabra" required>
+
+        <label for="significado">Significado:</label>
+        <textarea id="significado" name="significado" rows="4" required></textarea>
+
+        <button type="submit">Agregar Palabra</button>
+    </form>
+    <br>
+    <a href="{{ url_for('index') }}">Volver al menú principal</a>
+</body>
+</html>

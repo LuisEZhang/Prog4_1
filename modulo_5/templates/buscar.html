@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar Palabra</title>
+</head>
+<body>
+    <h1>Buscar Palabra</h1>
+    <form method="post" action="{{ url_for('buscar_palabra') }}">
+        <label for="palabra_a_buscar">Palabra a Buscar:</label>
+        <input type="text" id="palabra_a_buscar" name="palabra_a_buscar" required>
+
+        <button type="submit">Buscar</button>
+    </form>
+
+    <br>
+    <a href="{{ url_for('index') }}">Volver al Menú Principal</a>
+</body>
+</html>

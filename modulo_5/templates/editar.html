@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Palabra</title>
+</head>
+<body>
+    <h1>Editar Palabra</h1>
+    <form method="post" action="{{ url_for('editar_palabra', palabra_a_editar=palabra.palabra) }}">
+        <label for="nueva_palabra">Nueva Palabra:</label>
+        <input type="text" id="nueva_palabra" name="nueva_palabra" value="{{ palabra.palabra }}" required>
+
+        <label for="nuevo_significado">Nuevo Significado:</label>
+        <textarea id="nuevo_significado" name="nuevo_significado" rows="4" required>{{ palabra.significado }}</textarea>
+
+        <button type="submit">Guardar Cambios</button>
+    </form>
+    <br>
+    <a href="{{ url_for('lista_palabras') }}">Volver a la Lista de Palabras</a>
+</body>
+</html>

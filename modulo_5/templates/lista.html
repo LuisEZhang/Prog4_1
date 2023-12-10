@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Palabras</title>
+</head>
+<body>
+    <h1>Lista de Palabras</h1>
+
+    {% if palabras %}
+        <ul>
+            {% for palabra in palabras %}
+                <li>{{ palabra.palabra }}: {{ palabra.significado }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>El diccionario está vacío.</p>
+    {% endif %}
+
+    <br>
+    <a href="{{ url_for('index') }}">Volver al menú principal</a>
+</body>
+</html>

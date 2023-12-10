@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slang Panameño</title>
+</head>
+<body>
+    <h1>Slang Panameño</h1>
+    <ul>
+        <li><a href="{{ url_for('agregar_palabra') }}">Agregar nueva palabra</a></li>
+        <li><a href="{{ url_for('editar_palabra', palabra_a_editar='palabra') }}">Editar palabra existente</a></li>
+        <li><a href="{{ url_for('eliminar_palabra', palabra_a_eliminar='palabra') }}">Eliminar palabra</a></li>
+        <li><a href="{{ url_for('lista_palabras') }}">Lista de palabras</a></li>
+        <li><a href="{{ url_for('buscar_palabra') }}">Buscar significado de palabra</a></li>
+        <li><a href="{{ url_for('index') }}">Salir</a></li>
+    </ul>
+</body>
+</html>
